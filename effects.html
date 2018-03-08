@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Find next</title>
+	<!-- bootstrap css-->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+	
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+		   <div class="container">
+		      <h1>Hello, world!</h1>
+		      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+		      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+		   </div>
+		</div>
+		<div class="effect">
+			<div class="item">
+				Xin chao!
+			</div>
+			<br>
+			<button id="btn_change">Change</button>
+		</div>
+		<style type="text/css">
+			.effect .item{
+				background-color: #ddd;
+				width: 500px;
+				height: 50px;
+				text-align: center;
+			}
+		</style>
+	</div>	
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- bootstrap js -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// animate_test();
+		})
+
+		function animate_test(){
+			$('.effect .item').animate({
+				"width":"50%",
+			},2000,scroll)
+		}
+
+		$('#btn_change').click(function(){
+			var box = $('.effect .item');
+			if(box.is(':visible')){
+				box.slideUp(500); //hide()
+			}
+			else{
+				box.slideDown(500)//show
+			}
+
+
+			// box.slideToggle()
+
+		})
+
+	</script>
+
+</body>
+</html>

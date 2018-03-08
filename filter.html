@@ -86,10 +86,10 @@ tr:nth-child(even) {
 <h2>demo click item and hide on javescript</h2>
 <div>
   <ul class="demo_clickLi">
-    <li>demo 1<a onclick="this.parentElement.style.display='none'" >&times;</a></li>
-    <li>demo 2<a onclick="this.parentElement.style.display='none'" >&times;</a></li>
-    <li>demo 3<a onclick="this.parentElement.style.display='none'" >&times;</a></li>
-    <li>demo 4<a onclick="this.parentElement.style.display='none'" >&times;</a></li>
+    <li>demo 1<a onclick="this.parentElement.style.display='none'" >&times;</a></li> <!-- by javascript -->
+    <li>demo 2<a onclick="this.parentElement.style.display='none'" >&times;</a></li> <!-- by javascript -->
+    <li>demo 3<a onclick="$(this).closest('li').css('display','none')" >&times;</a></li><!-- đúng --> <!-- jquery -->
+    <li>demo 4<a onclick="this.css('display','none')" >&times;</a></li><!-- sai --> <!-- jquery -->
   </ul>
 </div>
 <style type="text/css">
@@ -104,6 +104,6 @@ tr:nth-child(even) {
     cursor: pointer;
   }
 </style>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
