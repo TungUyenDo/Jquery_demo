@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validate</title>
+    <!-- bootstrap css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Hello, world!</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+                    jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                    unique.</p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_validate">
+                    <form class="form-group" id="takeinfo">
+                        <table class="table  table-bordered">
+                            <tr>
+                                <td>NAME</td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="your name" name="name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PHONE</td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="your phone number" name="phone">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ADDRESS</td>
+                                <td>
+                                    <input class="form-control" type="text" placeholder="your address" name="address">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GENDER</td>
+                                <td>
+                                    <label for="male">
+                                        <input id="male" type="radio" name="gender" value="0" checked>Male
+                                    </label>
+                                    <br>
+                                    <label for="female">
+                                        <input id="female" type="radio" name="gender" value="1">Female
+                                    </label>
+                
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>HOBBIES</td>
+                                <td>
+                                    <label for="hob1">
+                                        <input id="hob1" type="checkbox" name="hobbies" value='di choi'> di choi
+                                    </label>
+                                    <br>
+                                    <label for="hob2">
+                                        <input id="hob2" type="checkbox" name="hobbies" value='di an' > di an
+                                    </label>
+                                    <br>
+                                    <label for="hob3">
+                                        <input id="hob3" type="checkbox" name="hobbies" value='di ngu' > di ngu
+                                    </label>
+                                    <br>
+                                    <label for="hob4">
+                                        <input id="hob4" type="checkbox" name="hobbies" value='di lam' > di lam
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Get data
+                                </td>
+                                <td>
+                                    <button id="getData" class="btn btn-success">Get</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="result"></div>
+                <table>
+                    <tr>
+                        <td>Results</td>
+                    </tr>
+                    <tr>
+                        <td id="result_detail"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+       
+        
+       
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $("#getData").click(function() {
+
+            //gắn kèm tên form để xác định form nào
+            var data = {
+                name : $('#takeinfo input[name="name"]').val(),
+                phone : $('#takeinfo input[name="phone"]').val(),
+                address : $('#takeinfo input[name="address"]').val(),
+                gender : $('#takeinfo input[name="gender"]:checked').val(), //lấy value của thằng đã checked
+                hobbies : '' // để trống rồi gán giá trị dô sau
+            }
+
+            var item_checked = $('#takeinfo input[name="hobbies"]:checked') //các item của checkbox đc check
+            var list_Hobbies = [] // list item đc check
+            for(var i = 0; i < item_checked.length; i++ ){
+                list_Hobbies.push($(item_checked[i]).val());//push item đc check vào mảng
+            }
+            data.hobbies = list_Hobbies // gán mảng chứa item vào data
+            console.log(data);
+
+            //result
+            $("#result_detail").html('Name: '+data.name + '<br>'+ 'Phone: ' + data.phone + 'Name: '+'<br>' + 'Address: ' + data.address + '<br>' + 'Gender: ' + data.gender + '<br>' + 'Hobbies: ' + data.hobbies)
+
+
+            return false;// return false để form ko submit
+        })
+
+    </script>
+
+</body>
+
+</html>
